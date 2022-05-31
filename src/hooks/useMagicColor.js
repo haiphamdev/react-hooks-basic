@@ -18,7 +18,7 @@ function useMagicColor() {
 
   useEffect(() => {
     const colorInterval = setInterval(() => {
-      // console.log("Change color", colorRef.current);
+      console.log("Change color", colorRef.current);
       const newColor = randomColor(colorRef.current);
       setColor(newColor);
 

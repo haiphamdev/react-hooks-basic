@@ -1,16 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import "./App.scss";
-import ColorBox from "./components/ColorBox";
-import Pagination from "./components/Pagination";
-import PostList from "./components/PostList";
-import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
-import queryString from "query-string";
-import PostFiltersForm from "./components/PostFiltersForm";
-import Clock from "./components/Clock";
-import BetterClock from "./components/BetterClock";
-import MagicBox from "./components/MagicBox";
 import Hero from "./components/Hero";
+import HomePage from "./pages/HomePage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +10,7 @@ function App() {
 
   return (
     <div className="app">
+      {/* <HomePage /> */}
       <p>{count}</p>
 
       <button onClick={() => setCount(count + 1)}>Increase</button>

@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
-import "./HomePage.scsss";
-import ColorBox from "./components/ColorBox";
-import Pagination from "./components/Pagination";
-import PostList from "./components/PostList";
-import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
 import queryString from "query-string";
-import PostFiltersForm from "./components/PostFiltersForm";
-import Clock from "./components/Clock";
-import BetterClock from "./components/BetterClock";
-import MagicBox from "./components/MagicBox";
+import React, { useEffect, useState } from "react";
+import BetterClock from "../../components/BetterClock";
+import Clock from "../../components/Clock";
+import MagicBox from "../../components/MagicBox";
+import Pagination from "../../components/Pagination";
+import PostFiltersForm from "../../components/PostFiltersForm";
+import PostList from "../../components/PostList";
+import TodoForm from "../../components/TodoForm";
+import TodoList from "../../components/TodoList";
+import "./HomePage.scss";
 
 function HomePage() {
   const [todoList, setTodoList] = useState([
@@ -36,7 +35,7 @@ function HomePage() {
         const requestUrl = `http://js-post-api.herokuapp.com/api/posts?${paramsString}`;
         const response = await fetch(requestUrl);
         const responseJSON = await response.json();
-        console.log({ responseJSON });
+        // console.log({ responseJSON });
 
         const { data, pagination } = responseJSON;
         setPostList(data);
@@ -78,7 +77,7 @@ function HomePage() {
   };
 
   const handlePageChange = (newPage) => {
-    console.log("New page: ", newPage);
+    // console.log("New page: ", newPage);
     setFilters({
       ...filters,
       _page: newPage,
@@ -99,16 +98,16 @@ function HomePage() {
   return (
     <div className="app">
       <h2>Welcome to React Hooks!</h2>
-      <MagicBox />
+      {/* <MagicBox /> */}
 
-      {showClock && <Clock />}
-      <BetterClock />
-      <button onClick={() => setShowClock(!showClock)}>Hide clock</button>
+      {/* {showClock && <Clock />} */}
+      {/* <BetterClock /> */}
+      {/* <button onClick={() => setShowClock(!showClock)}>Hide clock</button> */}
       {/* <TodoForm onSubmit={handleTodoFormSubmit} /> */}
       {/* <TodoList todos={todoList} onTodoClick={handleTodoClick} /> */}
-      {/* <PostFiltersForm onSubmit={handleFiltersChange} />
+      <PostFiltersForm onSubmit={handleFiltersChange} />
       <PostList posts={postList} />
-      <Pagination pagination={pagination} onPageChange={handlePageChange} /> */}
+      <Pagination pagination={pagination} onPageChange={handlePageChange} />
     </div>
   );
 }
